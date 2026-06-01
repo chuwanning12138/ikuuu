@@ -2,7 +2,7 @@ name: Keep Repository Alive
 
 on:
   schedule:
-    - cron: '0 0 */20 * *'  # 每20天提交一次，可按需调整
+    - cron: '0 0 */30 * *'  # 每30天提交一次，可按需调整
   workflow_dispatch:        # 允许手动运行
 
 jobs:
