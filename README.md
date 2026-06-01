@@ -12,39 +12,30 @@ Name:
 ```
 ACCOUNTS
 ```
+
 Secret:
+
 ```
 aaa@qq.com:123456
 bbb@qq.com:abcdef
 ccc@qq.com:qwerty
 ```
+
 一行一个账号。不要加空格。
 
-### 下面为企业微信消息推送（选填）
+### 下面为企业微信机器人消息推送
 
-1Name: 
+Name: 
+
 ```
 WX_AGENTID
 ```
+
 Secret:
-```
-填你的企业微信应用ID
-```
-2Name: 
-```
-WX_CORPID
-```
-Secret:
-```
-填你的企业微信ID
-```
-3Name: 
-```
-WX_CORPSECRET
-```
-Secret:
-```
-填你的企业微信应用密钥
+
+```http
+https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx
+# 这是企业微信新建机器人时生成的
 ```
 
 ### ✅ 第三步：测试运行
