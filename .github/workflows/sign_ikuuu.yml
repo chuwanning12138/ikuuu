@@ -2,8 +2,8 @@ name: Auto Sign-in for BBS
 
 on:
   schedule:
-    - cron: '10 23 * * *'
-  workflow_dispatch:
+    - cron: '10 23 * * *'   # 每天 UTC 时间 23:10 运行（北京时间次日 7:10）
+  workflow_dispatch:        # 允许手动触发
 
 jobs:
   sign_in_job:
@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4      # 升级到 v4
+        uses: actions/checkout@v6      # ✅ 升级到 v6，原生 Node.js 24
 
       - name: Set up Python
-        uses: actions/setup-python@v5  # 升级到 v5
+        uses: actions/setup-python@v6  # ✅ 升级到 v6，原生 Node.js 24
         with:
           python-version: '3.11'
 
@@ -29,6 +29,6 @@ jobs:
 
       - name: Run sign-in script
         env:
-          ACCOUNTS: ${{ secrets.ACCOUNTS }}
-          WX_ROBOT_WEBHOOK: ${{ secrets.WX_ROBOT_WEBHOOK }}
+          ACCOUNTS: ${{ secrets.ACCOUNTS }}                # 多账号: email:passwd 每行一个
+          WX_ROBOT_WEBHOOK: ${{ secrets.WX_ROBOT_WEBHOOK }} # 企业微信群机器人 Webhook
         run: python sign_ikuuu.py
