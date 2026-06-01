@@ -1,3 +1,4 @@
+## 本项目借鉴自 [qqhsx/sign_ikuuu](https://github.com/qqhsx/sign_ikuuu)，在此表示感谢。我在其基础上改用了企业微信群机器人通知。
 ### ✅ 第一步：Fork 本仓库
 
 打开本项目页面 → 点击右上角 Fork 按钮（复制到你自己的 GitHub 账号下）
