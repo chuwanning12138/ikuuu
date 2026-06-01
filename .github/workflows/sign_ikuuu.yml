@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4      # 升级到 v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5  # 升级到 v5
         with:
           python-version: '3.11'
 
@@ -22,7 +22,6 @@ jobs:
         run: |
           pip install requests
           pip install playwright
-          # 不再需要 my-utils 库
 
       - name: Install Playwright Browsers
         run: |
@@ -31,5 +30,5 @@ jobs:
       - name: Run sign-in script
         env:
           ACCOUNTS: ${{ secrets.ACCOUNTS }}
-          WX_ROBOT_WEBHOOK: ${{ secrets.WX_ROBOT_WEBHOOK }}  # 新增
+          WX_ROBOT_WEBHOOK: ${{ secrets.WX_ROBOT_WEBHOOK }}
         run: python sign_ikuuu.py
