@@ -1,0 +1,24 @@
+name: DNShe自动续期域名
+
+on:
+  schedule:
+    - cron: "0 3 1,15 * *"
+  workflow_dispatch:
+
+jobs:
+  renew:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 安装依赖
+        run: pip install requests
+      - name: 执行续期脚本
+        env:
+          DNSHE_API_KEY: ${{ secrets.DNSHE_API_KEY }}
+          DNSHE_API_SECRET: ${{ secrets.DNSHE_API_SECRET }}
+          WECHAT_WEBHOOK_URL: ${{ secrets.WX_ROBOT_WEBHOOK }}
+          RENEW_THRESHOLD_DAYS: ${{ secrets.RENEW_THRESHOLD_DAYS }}
+        run: python renew.py
