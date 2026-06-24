@@ -29,7 +29,7 @@ ccc@qq.com:qwerty
 Name: 
 
 ```
-WX_AGENTID
+WX_ROBOT_WEBHOOK
 ```
 
 Secret:
