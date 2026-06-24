@@ -21,4 +21,4 @@ jobs:
           DNSHE_API_SECRET: ${{ secrets.DNSHE_API_SECRET }}
           WECHAT_WEBHOOK_URL: ${{ secrets.WX_ROBOT_WEBHOOK }}
           RENEW_THRESHOLD_DAYS: ${{ secrets.RENEW_THRESHOLD_DAYS }}
-        run: python dns_renew.py
+        run: python dnshe_renew.py
